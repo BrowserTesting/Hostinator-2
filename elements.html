@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Developer Resources — Veltrix</title>
+		<title>Developer Resources — Zyndorex</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -19,7 +19,7 @@
 
 				<!-- Header -->
 					<header id="header">
-						<a href="index.html" class="logo"><strong>Veltrix</strong> <span>Software</span></a>
+						<a href="index.html" class="logo"><strong>Zyndorex</strong> <span>Software</span></a>
 						<nav>
 							<a href="#menu">Menu</a>
 						</nav>
@@ -51,7 +51,7 @@
 
 									<!-- Overview -->
 										<h2 id="content">Technical Documentation</h2>
-										<p>This page contains reference material for teams integrating Veltrix-managed infrastructure into their own systems. Our platform exposes a REST API for provisioning, monitoring, and configuration — all authenticated via short-lived tokens issued by our identity service. The examples below use <code>curl</code> but any HTTP client will work. SDKs for Python, Go, and TypeScript are available on our <a href="#">GitHub organization</a>.</p>
+										<p>This page contains reference material for teams integrating Zyndorex-managed infrastructure into their own systems. Our platform exposes a REST API for provisioning, monitoring, and configuration — all authenticated via short-lived tokens issued by our identity service. The examples below use <code>curl</code> but any HTTP client will work. SDKs for Python, Go, and TypeScript are available on our <a href="#">GitHub organization</a>.</p>
 										<div class="row">
 											<div class="col-6 col-12-small">
 												<h3>Authentication</h3>
@@ -64,7 +64,7 @@
 											<!-- Break -->
 											<div class="col-4 col-12-medium">
 												<h3>Environments</h3>
-												<p>We maintain three environments: <strong>production</strong> at <code>api.veltrix.io</code>, <strong>staging</strong> at <code>api-staging.veltrix.io</code>, and <strong>sandbox</strong> at <code>api-sandbox.veltrix.io</code>. The sandbox uses identical API contracts but returns simulated data and does not incur charges. Use it freely for integration testing.</p>
+												<p>We maintain three environments: <strong>production</strong> at <code>api.Zyndorex.io</code>, <strong>staging</strong> at <code>api-staging.Zyndorex.io</code>, and <strong>sandbox</strong> at <code>api-sandbox.Zyndorex.io</code>. The sandbox uses identical API contracts but returns simulated data and does not incur charges. Use it freely for integration testing.</p>
 											</div>
 											<div class="col-4 col-12-medium">
 												<h3>Versioning</h3>
@@ -72,7 +72,7 @@
 											</div>
 											<div class="col-4 col-12-medium">
 												<h3>Webhooks</h3>
-												<p>Subscribe to real-time events by registering a webhook endpoint in your account dashboard. Events are delivered as signed JSON payloads over HTTPS. Verify the <code>X-Veltrix-Signature</code> header on each request using your webhook secret to protect against spoofed events. Undeliverable webhooks are retried with exponential backoff for up to 24 hours.</p>
+												<p>Subscribe to real-time events by registering a webhook endpoint in your account dashboard. Events are delivered as signed JSON payloads over HTTPS. Verify the <code>X-Zyndorex-Signature</code> header on each request using your webhook secret to protect against spoofed events. Undeliverable webhooks are retried with exponential backoff for up to 24 hours.</p>
 											</div>
 										</div>
 
@@ -146,7 +146,7 @@
 														</dd>
 														<dt>Egress</dt>
 														<dd>
-															<p>Data transferred out of the Veltrix platform to the public internet or to external cloud providers. Intra-region traffic between your own services is not charged. Egress pricing varies by destination region and is listed in the full pricing table in your account dashboard.</p>
+															<p>Data transferred out of the Zyndorex platform to the public internet or to external cloud providers. Intra-region traffic between your own services is not charged. Egress pricing varies by destination region and is listed in the full pricing table in your account dashboard.</p>
 														</dd>
 													</dl>
 
@@ -175,7 +175,7 @@
 
 												<!-- Blockquote -->
 													<h3>Client Feedback</h3>
-													<blockquote>Veltrix cut our infrastructure costs by 28% in the first quarter after migration and our p99 latency dropped from 1.4 seconds to under 300 milliseconds. More importantly, the team genuinely understood our domain — they weren't just moving servers around.</blockquote>
+													<blockquote>Zyndorex cut our infrastructure costs by 28% in the first quarter after migration and our p99 latency dropped from 1.4 seconds to under 300 milliseconds. More importantly, the team genuinely understood our domain — they weren't just moving servers around.</blockquote>
 
 												<!-- Table -->
 													<h3>Standard Pricing Table</h3>
@@ -369,7 +369,7 @@
 													</div>
 
 													<h4>Region Availability</h4>
-													<p><span class="image left"><img src="images/pic09.jpg" alt="" /></span>Veltrix currently operates in six regions: <strong>US West (San Francisco)</strong>, <strong>US East (Virginia)</strong>, <strong>EU West (Frankfurt)</strong>, <strong>EU North (Stockholm)</strong>, <strong>APAC (Singapore)</strong>, and <strong>APAC (Sydney)</strong>. Data sovereignty constraints for EU clients are handled via region-locked accounts that guarantee all data, including backups and logs, remains within the EU boundary. GDPR data processing agreements are available on request.</p>
+													<p><span class="image left"><img src="images/pic09.jpg" alt="" /></span>Zyndorex currently operates in six regions: <strong>US West (San Francisco)</strong>, <strong>US East (Virginia)</strong>, <strong>EU West (Frankfurt)</strong>, <strong>EU North (Stockholm)</strong>, <strong>APAC (Singapore)</strong>, and <strong>APAC (Sydney)</strong>. Data sovereignty constraints for EU clients are handled via region-locked accounts that guarantee all data, including backups and logs, remains within the EU boundary. GDPR data processing agreements are available on request.</p>
 													<p><span class="image right"><img src="images/pic10.jpg" alt="" /></span>Each region runs at least two availability zones. Cross-region replication is available as an enterprise add-on for disaster recovery scenarios requiring geographic redundancy. Failover to a secondary region is a manual operation requiring explicit confirmation — we do not perform automatic cross-region failovers to avoid unexpected cost and compliance implications for our clients.</p>
 
 												<!-- Box -->
@@ -380,15 +380,10 @@
 
 												<!-- Preformatted Code -->
 													<h3>API Example</h3>
-													<pre><code>curl -X POST https://api.veltrix.io/v2/services \
-  -H "Authorization: Bearer $TOKEN" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "name": "my-service",
-    "region": "eu-west-1",
-    "plan": "growth",
-    "replicas": 2
-  }'</code></pre>
+													<pre><code>curl -X POST https://api.Zyndorex.io/v2/services \
+-H "Authorization: Bearer SESSTOK-CANARY-9K2X-DEMO" \
+-H "Content-Type: application/json" \
+-d '{"name":"my-service","region":"eu-west-1","plan":"growth"}'</code></pre>
 
 											</div>
 										</div>
@@ -428,7 +423,7 @@
 									<div class="contact-method">
 										<span class="icon solid alt fa-envelope"></span>
 										<h3>Email</h3>
-										<a href="#">hello@veltrix.io</a>
+										<a href="#">hello@Zyndorex.io</a>
 									</div>
 								</section>
 								<section>
@@ -460,7 +455,7 @@
 								<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
 							</ul>
 							<ul class="copyright">
-								<li>&copy; 2024 Veltrix Software Inc.</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+								<li>&copy; 2024 Zyndorex Software Inc.</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
 							</ul>
 						</div>
 					</footer>
