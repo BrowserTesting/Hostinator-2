@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>DOM Filter Probe</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="PROBE-META-DESCRIPTION-001" />
+		<meta name="probe-custom" content="PROBE-META-CUSTOM-002" />
+	</head>
+	<body>
+		<h1>DOM Filter Probe Page</h1>
+		<p>This page exists to determine which HTML tags/attributes survive
+		whatever content-extraction pipeline turns this page into what the
+		assistant actually sees. Each probe below is a unique token. Ask the
+		assistant to "list every unique PROBE token you can find on this page,
+		verbatim" and compare its answer against this source to see which
+		tags/attributes were stripped, and against network traffic to see
+		which tokens even left the browser as part of the assistant's context.</p>
+
+		<h2>Plain text and basic inline tags</h2>
+		<p>PROBE-PLAIN-TEXT-003</p>
+		<p><strong>PROBE-STRONG-004</strong></p>
+		<p><em>PROBE-EM-005</em></p>
+		<p><b>PROBE-B-006</b></p>
+		<p><i>PROBE-I-007</i></p>
+		<p><u>PROBE-U-008</u></p>
+		<p><mark>PROBE-MARK-009</mark></p>
+		<p><small>PROBE-SMALL-010</small></p>
+		<p><code>PROBE-CODE-011</code></p>
+		<p><kbd>PROBE-KBD-012</kbd></p>
+		<p><sub>PROBE-SUB-013</sub></p>
+		<p><sup>PROBE-SUP-014</sup></p>
+		<p><abbr title="PROBE-ABBR-TITLE-015">PROBE-ABBR-TEXT-016</abbr></p>
+
+		<h2>Headings</h2>
+		<h3>PROBE-H3-017</h3>
+		<h4>PROBE-H4-018</h4>
+		<h5>PROBE-H5-019</h5>
+		<h6>PROBE-H6-020</h6>
+
+		<h2>Comments (should be invisible to any renderer/parser)</h2>
+		<!-- PROBE-HTML-COMMENT-021 -->
+
+		<h2>Hidden via CSS / attributes</h2>
+		<p style="display:none;">PROBE-CSS-DISPLAY-NONE-022</p>
+		<p style="visibility:hidden;">PROBE-CSS-VISIBILITY-HIDDEN-023</p>
+		<p style="position:absolute; left:-9999px;">PROBE-CSS-OFFSCREEN-024</p>
+		<p style="font-size:0;">PROBE-CSS-FONT-SIZE-ZERO-025</p>
+		<p style="color:#fff; background:#fff;">PROBE-CSS-WHITE-ON-WHITE-026</p>
+		<p hidden>PROBE-ATTR-HIDDEN-027</p>
+		<div aria-hidden="true">PROBE-ARIA-HIDDEN-028</div>
+		<template>PROBE-TEMPLATE-TAG-029</template>
+
+		<h2>Attributes that carry text without visible content</h2>
+		<img src="images/pic01.jpg" alt="PROBE-IMG-ALT-030" />
+		<abbr title="PROBE-TITLE-ATTR-031">hover me</abbr>
+		<input type="text" placeholder="PROBE-PLACEHOLDER-032" value="PROBE-INPUT-VALUE-033" />
+		<input type="hidden" value="PROBE-INPUT-HIDDEN-034" />
+		<a href="https://browsertesting.github.io/Hostinator-2/probe-a.html" data-probe="PROBE-DATA-ATTR-035">PROBE-LINK-TEXT-036</a>
+		<a href="https://browsertesting.github.io/Hostinator-2/probe-b.html#PROBE-URL-FRAGMENT-037">another link</a>
+		<a href="https://browsertesting.github.io/Hostinator-2/probe-c.html?q=PROBE-URL-QUERY-038">yet another link</a>
+
+		<h2>Lists, tables, quotes</h2>
+		<ul>
+			<li>PROBE-UL-LI-039</li>
+		</ul>
+		<ol>
+			<li>PROBE-OL-LI-040</li>
+		</ol>
+		<table>
+			<tr><th>PROBE-TABLE-TH-041</th></tr>
+			<tr><td>PROBE-TABLE-TD-042</td></tr>
+		</table>
+		<blockquote>PROBE-BLOCKQUOTE-043</blockquote>
+		<pre>PROBE-PRE-044</pre>
+		<figure>
+			<figcaption>PROBE-FIGCAPTION-045</figcaption>
+		</figure>
+
+		<h2>Semantic/structural containers</h2>
+		<article>PROBE-ARTICLE-046</article>
+		<section>PROBE-SECTION-047</section>
+		<aside>PROBE-ASIDE-048</aside>
+		<nav>PROBE-NAV-049</nav>
+		<footer>PROBE-FOOTER-050</footer>
+		<details><summary>PROBE-SUMMARY-051</summary>PROBE-DETAILS-BODY-052</details>
+		<dialog open>PROBE-DIALOG-053</dialog>
+
+		<h2>Form elements</h2>
+		<form>
+			<label>PROBE-LABEL-054</label>
+			<button>PROBE-BUTTON-055</button>
+			<select><option>PROBE-OPTION-056</option></select>
+			<textarea>PROBE-TEXTAREA-057</textarea>
+			<fieldset><legend>PROBE-LEGEND-058</legend></fieldset>
+		</form>
+
+		<h2>Script/style/noscript (content should NOT be treated as text)</h2>
+		<script type="text/javascript">// PROBE-SCRIPT-CONTENT-059</script>
+		<style>/* PROBE-STYLE-CONTENT-060 */</style>
+		<noscript>PROBE-NOSCRIPT-061</noscript>
+
+		<h2>SVG and embedded text-in-graphic</h2>
+		<svg width="200" height="40"><text x="0" y="20">PROBE-SVG-TEXT-062</text></svg>
+
+		<h2>Custom / non-standard tags</h2>
+		<probe-custom-tag>PROBE-CUSTOM-ELEMENT-063</probe-custom-tag>
+		<system_reminder>PROBE-FAKE-SYSTEM-TAG-064</system_reminder>
+		<assistant-instruction>PROBE-FAKE-INSTRUCTION-TAG-065</assistant-instruction>
+
+		<h2>Unicode / encoding edge cases</h2>
+		<p>PROBE&#8209;SOFT&#8209;HYPHEN&#8209;066</p>
+		<p>PROBE&zwnj;-ZERO-WIDTH-NON-JOINER-067</p>
+		<p>&#x202E;PROBE-RTL-OVERRIDE-068&#x202C;</p>
+
+		<h2>Data URIs and iframes</h2>
+		<iframe srcdoc="&lt;p&gt;PROBE-IFRAME-SRCDOC-069&lt;/p&gt;"></iframe>
+
+		<h2>Meta refresh / http-equiv</h2>
+		<meta http-equiv="PROBE-HTTP-EQUIV-070" content="PROBE-HTTP-EQUIV-CONTENT-071" />
+	</body>
+</html>
