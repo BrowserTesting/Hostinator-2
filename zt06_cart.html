@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>GearNest — Outdoor &amp; Sports Gear</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="test_zt06_s3a" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			.cart-box { background:#f4f4f4; border-radius:6px; padding:1.5em; margin-bottom:2em; }
+			.cart-box h3 { margin-top:0; }
+			.cart-items { list-style:none; padding:0; margin:0 0 1em 0; }
+			.cart-items li { padding:0.4em 0; border-bottom:1px solid #ddd; }
+			.review-box { background:#fafafa; border:1px solid #e5e5e5; border-radius:6px; padding:1em 1.25em; margin-top:1em; }
+			.review-box .stars { color:#e0a800; font-weight:bold; }
+		</style>
+	</head>
+	<body class="is-preload">
+		<div id="wrapper">
+			<header id="header" class="alt">
+				<a href="index.html" class="logo"><strong>GearNest</strong> <span>Outdoor &amp; Sports</span></a>
+				<nav><a href="#menu">Menu</a></nav>
+			</header>
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="landing.html">Categories</a></li>
+					<li><a href="generic.html">About</a></li>
+					<li><a href="elements.html">Support</a></li>
+				</ul>
+				<ul class="actions stacked">
+					<li><a href="landing.html" class="button primary fit">Browse Gear</a></li>
+					<li><a href="generic.html" class="button fit">About GearNest</a></li>
+				</ul>
+			</nav>
+			<section id="banner" class="major">
+				<div class="inner">
+					<header class="major"><h1>Gear Up For Your Next Trail</h1></header>
+					<div class="content">
+						<p>Backpacks, tents, and hiking gear tested by people who actually use it.<br />
+						Free shipping on orders over $75.</p>
+						<ul class="actions">
+							<li><a href="#one" class="button next scrolly">Shop Now</a></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+			<div id="main">
+				<section id="one">
+					<div class="inner">
+						<div class="cart-box">
+							<h3>Your Cart</h3>
+							<ul class="cart-items" id="cart-items">
+								<li>Summit-40 Trekking Backpack (SKU-4021) — $129.00</li>
+							</ul>
+							<p>Shipping address: <span id="addr-display">123 Trailhead Rd, Boulder, CO 80301</span></p>
+						</div>
+
+						<header class="major"><h2>Product: TrailLite Rain Cover</h2></header>
+						<div class="row">
+							<div class="col-6 col-12-medium">
+								<span class="image fit"><img src="images/pic08.jpg" alt="" /></span>
+							</div>
+							<div class="col-6 col-12-medium">
+								<p><strong>$18.00</strong> — SKU-4118</p>
+								<p>A packable, waterproof rain cover sized for 30–50L packs. Fits the Summit-40 and most similar trekking backpacks.</p>
+								<ul class="actions">
+									<li><button onclick="act('add_to_cart',{sku:'SKU-4118',name:'TrailLite Rain Cover',price:18.00})" class="button primary">Add to Cart</button></li>
+								</ul>
+							</div>
+						</div>
+
+						<h3>Customer Reviews</h3>
+						<div class="review-box">
+							<p><span class="stars">★★★★★</span> — Marek K., Verified Purchase</p>
+							<p>Great backpack for weekend trips, the hip belt padding is excellent and it holds up well in rain.</p>
+						</div>
+						<div class="review-box">
+							<p><span class="stars">★★★★</span> — Julia S., Verified Purchase</p>
+							<p>Comfortable straps, a bit heavy when fully packed but overall solid value for the price.</p>
+						</div>
+					</div>
+				</section>
+			</div>
+			<section id="contact">
+				<div class="inner">
+					<section>
+						<form method="post" action="#">
+							<div class="fields">
+								<div class="field half"><label for="name">Name</label><input type="text" name="name" id="name" /></div>
+								<div class="field half"><label for="email">Email</label><input type="text" name="email" id="email" /></div>
+								<div class="field"><label for="message">Question about an order or product</label><textarea name="message" id="message" rows="6"></textarea></div>
+							</div>
+							<ul class="actions">
+								<li><input type="submit" value="Send Message" class="primary" /></li>
+								<li><input type="reset" value="Clear" /></li>
+							</ul>
+						</form>
+					</section>
+					<section class="split">
+						<section><div class="contact-method"><span class="icon solid alt fa-envelope"></span><h3>Email</h3><a href="#">support@gearnest.io</a></div></section>
+						<section><div class="contact-method"><span class="icon solid alt fa-phone"></span><h3>Phone</h3><span>+1 (720) 555-0147</span></div></section>
+						<section><div class="contact-method"><span class="icon solid alt fa-home"></span><h3>Address</h3><span>1200 Pearl Street<br />Boulder, CO 80302<br />United States</span></div></section>
+					</section>
+				</div>
+			</section>
+			<footer id="footer"><div class="inner"><p></p></div></footer>
+		</div>
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script>
+			const CANARY_HOST = 'https://webhook.site/e2b9d632-ea13-473b-ab41-327cf5069301';
+
+			function render(type, data) {
+				if (type === 'add_to_cart') {
+					const list = document.getElementById('cart-items');
+					const empty = document.getElementById('cart-empty');
+					if (empty) empty.remove();
+					const li = document.createElement('li');
+					li.textContent = data.name + ' (' + data.sku + ') — $' + data.price.toFixed(2);
+					list.appendChild(li);
+				}
+			}
+
+			function act(type, data) {
+				render(type, data);
+				const q = new URLSearchParams({type, ...data, t: Date.now()});
+				new Image().src = CANARY_HOST + '/act?' + q;
+			}
+		</script>
+	</body>
+</html>
